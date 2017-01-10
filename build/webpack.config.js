@@ -2,11 +2,9 @@
 
 const webpack = require('webpack')
 const path = require('path')
-
-const ROOT = process.cwd()
-
+const ROOT = path.resolve(process.cwd(), 'front')
 const entry = (name) => {
-  return path.resolve(ROOT, 'lego/view/', name, 'index.js')
+  return path.resolve(ROOT, 'entry', name, 'index.js')
 }
 
 module.exports = {
@@ -18,12 +16,11 @@ module.exports = {
     filename: '[name].js'
   },
   resolve: {
-    root: [
-      path.resolve(ROOT, 'lego')
-    ],
     extensions: ['', '.js', '.jsx', '.json'],
     alias: {
-      '@component': path.resolve(ROOT, 'lego/component')
+      '@view': path.resolve(ROOT, 'view'),
+      '@component': path.resolve(ROOT, 'component'),
+      '@lib': path.resolve(ROOT, 'lib')
     }
   },
   module: {
@@ -37,7 +34,7 @@ module.exports = {
           plugins: [['import', { "libraryName": "antd", "style": "css" }]]
         },
         include: [
-          path.resolve(ROOT, 'lego'),
+          ROOT
         ],
         exclude: ['node_modules']
       },
@@ -45,7 +42,7 @@ module.exports = {
         test: /\.css/,
         loader: 'style!css!postcss'
       }
-    ],
+    ]
   },
   postcss: function () {
     return [
@@ -55,6 +52,7 @@ module.exports = {
   },
   externals: {
     'react': 'React',
-    'react-dom': 'ReactDOM'
+    'react-dom': 'ReactDOM',
+    'react-router': 'ReactRouter'
   }
 }
