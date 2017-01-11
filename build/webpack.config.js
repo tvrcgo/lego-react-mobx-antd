@@ -6,6 +6,8 @@ const ROOT = path.resolve(process.cwd(), 'front')
 const entry = (name) => {
   return path.resolve(ROOT, 'entry', name, 'index.js')
 }
+// ant design custom theme
+const theme = require(path.resolve(ROOT, 'style/antd-theme.js'))
 
 module.exports = {
   entry: {
@@ -20,6 +22,7 @@ module.exports = {
     alias: {
       '@view': path.resolve(ROOT, 'view'),
       '@component': path.resolve(ROOT, 'component'),
+      '@style': path.resolve(ROOT, 'style'),
       '@lib': path.resolve(ROOT, 'lib')
     }
   },
@@ -31,16 +34,17 @@ module.exports = {
         loader: 'babel',
         query: {
           presets: ['es2015', 'stage-0', 'react'],
-          plugins: [['import', { "libraryName": "antd", "style": "css" }]]
+          plugins: [['import', { "libraryName": "antd", "style": true }]]
         },
-        include: [
-          ROOT
-        ],
         exclude: ['node_modules']
       },
       {
         test: /\.css/,
         loader: 'style!css!postcss'
+      },
+      {
+        test: /\.less/,
+        loader: `style!css!postcss!less?{modifyVars:${JSON.stringify(theme)}}`
       }
     ]
   },

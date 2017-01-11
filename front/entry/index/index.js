@@ -1,4 +1,5 @@
 import Loader from '@lib/loader'
+import '@style/index.css'
 
 const loader = new Loader()
 
