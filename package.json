@@ -9,7 +9,7 @@
     "dev": "npm run watch & npm start",
     "lint": "eslint app *.js",
     "watch": "webpack --config ./build/webpack.config.js -w",
-    "dist": "webpack --config ./build/webpack.config.js -p"
+    "dist": "webpack --config ./build/webpack.config.prod.js -p"
   },
   "keywords": [
     "node.js",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "antd": "^2.6.1",
+    "assets-webpack-plugin": "^3.5.0",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-import": "^1.1.0",

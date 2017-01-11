@@ -2,6 +2,7 @@
 
 const webpack = require('webpack')
 const path = require('path')
+const assetsPlugin = require('assets-webpack-plugin')
 const ROOT = path.resolve(process.cwd(), 'front')
 const entry = (name) => {
   return path.resolve(ROOT, 'entry', name, 'index.js')
@@ -58,5 +59,10 @@ module.exports = {
     'react': 'React',
     'react-dom': 'ReactDOM',
     'react-router': 'ReactRouter'
-  }
+  },
+  plugins: [
+    new assetsPlugin({
+      fullPath: false
+    })
+  ]
 }

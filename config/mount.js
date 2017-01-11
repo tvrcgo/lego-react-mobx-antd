@@ -10,7 +10,8 @@ exports.plugin = {
     enable: true,
     package: 'lego-static'
   },
-  performance: {}
+  performance: {},
+  assets: {}
 }
 
 // 加载的agent

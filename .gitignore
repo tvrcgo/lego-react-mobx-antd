@@ -8,3 +8,4 @@ logs
 dist
 .*/
 app/public/bundle
+webpack-assets.json
