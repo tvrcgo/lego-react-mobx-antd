@@ -3,6 +3,7 @@
 ### Front
 - react
 - antd
+- TypeScript
 
 ### Server
 - lego

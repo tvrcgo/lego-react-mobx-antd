@@ -1,0 +1,9 @@
+{
+  "include": [
+    "front/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

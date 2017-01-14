@@ -19,7 +19,7 @@ module.exports = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json'],
+    extensions: ['', '.js', '.jsx', '.json', '.ts', '.tsx'],
     alias: {
       '@view': path.resolve(ROOT, 'view'),
       '@component': path.resolve(ROOT, 'component'),
@@ -37,7 +37,12 @@ module.exports = {
           presets: ['es2015', 'stage-0', 'react'],
           plugins: [['import', { "libraryName": "antd", "style": true }]]
         },
-        exclude: ['node_modules']
+        exclude: [/node_modules/]
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: [/node_modules/]
       },
       {
         test: /\.css/,
