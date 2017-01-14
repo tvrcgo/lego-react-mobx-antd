@@ -1,7 +1,7 @@
 # lego-react-antd
 
 ### Front
-- react
+- React
 - antd
 - TypeScript
 

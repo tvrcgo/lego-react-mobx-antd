@@ -1,4 +1,5 @@
-import { render } from 'react'
+import React from 'react'
+import { render } from 'react-dom'
 import { Router, Route, hashHistory } from 'react-router'
 
 export default class Loader {

@@ -1,14 +1,14 @@
-'use strict'
-
 const webpack = require('webpack')
-const path = require('path')
 const assetsPlugin = require('assets-webpack-plugin')
-const ROOT = path.resolve(process.cwd(), 'front')
+const { join } = require('path')
+const root = process.cwd()
+const front = join(root, 'front')
+
 const entry = (name) => {
-  return path.resolve(ROOT, 'entry', name, 'index.js')
+  return join(front, 'entry', name, 'index.js')
 }
 // ant design custom theme
-const theme = require(path.resolve(ROOT, 'style/antd-theme.js'))
+const theme = require(join(front, 'style/antd-theme.js'))
 
 module.exports = {
   entry: {
@@ -16,19 +16,18 @@ module.exports = {
   },
   output: {
     path: 'app/public/bundle',
-    filename: '[name].js'
+    publicPath: 'app/public'
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.ts', '.tsx'],
     alias: {
-      '@view': path.resolve(ROOT, 'view'),
-      '@component': path.resolve(ROOT, 'component'),
-      '@style': path.resolve(ROOT, 'style'),
-      '@lib': path.resolve(ROOT, 'lib')
+      '@view': join(front, 'view'),
+      '@component': join(front, 'component'),
+      '@style': join(front, 'style'),
+      '@lib': join(front, 'lib')
     }
   },
   module: {
-    noParse: [],
     loaders: [
       {
         test: /\.(js|jsx)$/,
@@ -37,12 +36,12 @@ module.exports = {
           presets: ['es2015', 'stage-0', 'react'],
           plugins: [['import', { "libraryName": "antd", "style": true }]]
         },
-        exclude: [/node_modules/]
+        include: [ front ],
+        exclude: [ /node_modules/ ]
       },
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
-        exclude: [/node_modules/]
+        loader: 'ts-loader'
       },
       {
         test: /\.css/,
@@ -56,18 +55,18 @@ module.exports = {
   },
   postcss: function () {
     return [
-      require('postcss-nested'),
-      require('autoprefixer')
+      require('postcss-nested')
     ]
   },
-  externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
-    'react-router': 'ReactRouter'
-  },
   plugins: [
+    new webpack.DllReferencePlugin({
+        manifest: require('../dist/lib-manifest.json'),
+        context: root
+    }),
     new assetsPlugin({
-      fullPath: false
+      fullPath: false,
+      path: join(root, 'dist'),
+      filename: 'app-assets.json'
     })
   ]
 }
