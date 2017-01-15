@@ -1,9 +1,11 @@
-import React from 'react'
+import {
+  React,
+  observer,
+  mixin
+} from '@lib/vk'
 
-export default class Hello extends React.Component {
-  render () {
-    return (
-      <div>hello component.</div>
-    )
-  }
-}
+export default mixin(({ store }) => {
+  return (
+    <div>Hello Component. {store.users}</div>
+  )
+}, {})

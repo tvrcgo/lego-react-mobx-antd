@@ -1,9 +1,11 @@
 # lego-react-antd
 
 ### Front
-- React
+- react
 - antd
-- TypeScript
+- typescript
+- mobx
+- mobx-react
 
 ### Server
 - lego

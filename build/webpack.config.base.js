@@ -30,11 +30,14 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         loader: 'babel',
         query: {
           presets: ['es2015', 'stage-0', 'react'],
-          plugins: [['import', { "libraryName": "antd", "style": true }]]
+          plugins: [
+            "transform-decorators-legacy",
+            ['import', { "libraryName": "antd", "style": true }]
+          ]
         },
         include: [ front ],
         exclude: [ /node_modules/ ]

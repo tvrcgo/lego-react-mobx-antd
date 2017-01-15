@@ -8,7 +8,9 @@ module.exports = {
     lib: [
       'react',
       'react-dom',
-      'react-router'
+      'react-router',
+      'mobx',
+      'mobx-react'
     ]
   },
   output: {
