@@ -1,11 +1,10 @@
 node_modules
-*.log
 npm-debug.log
+.DS_Store
+.*/
+*.log
 .logs/
 logs
-.idea/
-.DS_Store
 dist
-.*/
+run
 app/public/bundle
-webpack-assets.json

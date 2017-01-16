@@ -1,15 +1,16 @@
 import {
   React,
-  Link
+  Link,
+  mixin
 } from '@lib/vk'
 
-export default class Home extends React.Component {
-  render () {
-    return (
-      <div>
-        <p>here is about page.</p>
-        <Link key={'home'} to={'/'}>back to Home</Link>
-      </div>
-    )
-  }
+const aboutView = ({}) => {
+  return (
+    <div>
+      <h2>about</h2>
+      <Link key={'home'} to={'/'}>Back to Home</Link>
+    </div>
+  )
 }
+
+export default mixin(aboutView)

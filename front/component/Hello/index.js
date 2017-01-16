@@ -1,11 +1,15 @@
 import {
   React,
-  observer,
-  mixin
+  mixin,
+  computed
 } from '@lib/vk'
 
-export default mixin(({ store }) => {
+const store = {
+  msg: 'hi'
+}
+
+export default mixin(({ home, store }) => {
   return (
-    <div>Hello Component. {store.users}</div>
+    <div>{ store.msg }. { home.users }</div>
   )
-}, {})
+}, { store })

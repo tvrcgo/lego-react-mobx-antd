@@ -7,14 +7,16 @@
   "scripts": {
     "start": "node index.js",
     "dev": "npm run build & npm start",
-    "lint": "eslint app *.js",
+    "lint": "eslint app front *.js",
     "build": "webpack --config ./build/webpack.config.dev.js --progress -w",
     "build:dll": "webpack --config ./build/webpack.config.dll.js --progress",
     "build:prod": "npm run build:dll && webpack --config ./build/webpack.config.prod.js -p"
   },
   "keywords": [
     "node.js",
-    "koa"
+    "koa",
+    "react",
+    "mobx"
   ],
   "author": "tvrcgo",
   "license": "MIT",

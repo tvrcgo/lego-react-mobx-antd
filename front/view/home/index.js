@@ -4,9 +4,7 @@ import {
   mixin
 } from '@lib/vk'
 import {
-  Button,
-  Row,
-  Col
+  Button
 } from 'antd'
 import Store from './index.store'
 import Hello from '@component/Hello'
@@ -14,13 +12,11 @@ import Hello from '@component/Hello'
 const homeView = ({ store }) => {
   return (
     <div>
-      <Row>
-        <Col>Hello World~</Col>
-        <Col><Button type='primary' onClick={store.increase}>Go</Button></Col>
-        <Link key={'about'} to={'about'}>About</Link>
-        <p>users: {store.users}</p>
-        <Hello store={store} />
-      </Row>
+      <h2>Home</h2>
+      <p>Hello World. <Link key={'about'} to={'about'}>About</Link></p>
+      <Button type='primary' onClick={store.increase}>Add</Button>
+      <p>users: {store.users}</p>
+      <Hello home={store} />
     </div>
   )
 }

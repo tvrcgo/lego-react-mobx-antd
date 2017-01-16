@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
-import { observer, inject } from 'mobx-react'
+import { observer } from 'mobx-react'
 import { observable, computed, action } from 'mobx'
 
 // mix view component and stores
