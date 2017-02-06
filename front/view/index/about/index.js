@@ -2,7 +2,7 @@ import {
   React,
   Link,
   mixin
-} from '@lib/vk'
+} from '$lib/mix'
 
 const aboutView = ({}) => {
   return (

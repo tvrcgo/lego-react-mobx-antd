@@ -9,10 +9,10 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@component/*": ["front/component/*"],
-      "@lib/*": ["front/lib/*"],
-      "@style/*": ["front/style/*"],
-      "@view/*": ["front/view/*"]
+      "$component/*": ["front/component/*"],
+      "$lib/*": ["front/lib/*"],
+      "$style/*": ["front/style/*"],
+      "$view/*": ["front/view/*"]
     }
   },
   "include": [

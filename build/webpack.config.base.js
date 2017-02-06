@@ -5,14 +5,14 @@ const root = process.cwd()
 const front = join(root, 'front')
 
 const entry = (name) => {
-  return join(front, 'entry', name, 'index.js')
+  return join(front, 'view', name, 'index.js')
 }
 // ant design custom theme
 const theme = require(join(front, 'style/antd-theme.js'))
 
 module.exports = {
   entry: {
-    index: entry('index')
+    index: [ entry('index') ]
   },
   output: {
     path: 'app/public/bundle',
@@ -21,10 +21,10 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.ts', '.tsx'],
     alias: {
-      '@view': join(front, 'view'),
-      '@component': join(front, 'component'),
-      '@style': join(front, 'style'),
-      '@lib': join(front, 'lib')
+      '$view': join(front, 'view'),
+      '$component': join(front, 'component'),
+      '$style': join(front, 'style'),
+      '$lib': join(front, 'lib')
     }
   },
   module: {

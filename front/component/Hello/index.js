@@ -2,7 +2,7 @@ import {
   React,
   mixin,
   computed
-} from '@lib/vk'
+} from '$lib/mix'
 
 const store = {
   msg: 'hi'
