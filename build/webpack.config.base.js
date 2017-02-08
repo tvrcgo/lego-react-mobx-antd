@@ -3,12 +3,11 @@ const assetsPlugin = require('assets-webpack-plugin')
 const { join } = require('path')
 const root = process.cwd()
 const front = join(root, 'front')
+const pkg = require(join(root, 'package.json'))
 
 const entry = (name) => {
   return join(front, 'view', name, 'index.js')
 }
-// ant design custom theme
-const theme = require(join(front, 'style/antd-theme.js'))
 
 module.exports = {
   entry: {
@@ -23,7 +22,6 @@ module.exports = {
     alias: {
       '$view': join(front, 'view'),
       '$component': join(front, 'component'),
-      '$style': join(front, 'style'),
       '$lib': join(front, 'lib')
     }
   },
@@ -48,11 +46,11 @@ module.exports = {
       },
       {
         test: /\.css/,
-        loader: 'style!css!postcss'
+        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:8]!postcss'
       },
       {
         test: /\.less/,
-        loader: `style!css!postcss!less?{modifyVars:${JSON.stringify(theme)}}`
+        loader: `style!css!less?{modifyVars:${JSON.stringify(pkg.config.antd.theme)}}`
       }
     ]
   },

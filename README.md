@@ -6,6 +6,7 @@
 - typescript
 - mobx
 - mobx-react
+- css modules
 
 ### Server
 - lego
