@@ -25,7 +25,7 @@ module.exports = {
       }
     }),
     new webpack.DllPlugin({
-      path: join(root, 'dist/[name]-manifest.json'),
+      path: join(root, 'run/[name]-manifest.json'),
       name: '[name]_[hash]',
       context: root
     }),
@@ -40,7 +40,7 @@ module.exports = {
     }),
     new AssetsPlugin({
       fullPath: false,
-      path: join(root, 'dist'),
+      path: join(root, 'run'),
       filename: 'lib-assets.json'
     })
   ]

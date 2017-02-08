@@ -61,12 +61,12 @@ module.exports = {
   },
   plugins: [
     new webpack.DllReferencePlugin({
-        manifest: require('../dist/lib-manifest.json'),
+        manifest: require('../run/lib-manifest.json'),
         context: root
     }),
     new assetsPlugin({
       fullPath: false,
-      path: join(root, 'dist'),
+      path: join(root, 'run'),
       filename: 'app-assets.json'
     })
   ]
