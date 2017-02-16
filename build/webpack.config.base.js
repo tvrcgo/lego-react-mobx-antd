@@ -19,11 +19,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.ts', '.tsx'],
-    alias: {
-      '$view': join(front, 'view'),
-      '$component': join(front, 'component'),
-      '$lib': join(front, 'lib')
-    }
+    root: [ front ]
   },
   module: {
     loaders: [
@@ -39,10 +35,6 @@ module.exports = {
         },
         include: [ front ],
         exclude: [ /node_modules/ ]
-      },
-      {
-        test: /\.tsx?$/,
-        loader: 'ts-loader'
       },
       {
         test: /\.css/,

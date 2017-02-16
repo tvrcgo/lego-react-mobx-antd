@@ -1,4 +1,4 @@
-import Loader from '$lib/loader'
+import Loader from 'lib/loader'
 
 const loader = new Loader()
 

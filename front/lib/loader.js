@@ -10,7 +10,7 @@ export default class Loader {
 
   router (routes) {
     const loop = (route) => {
-      const view = require(`$view/${route.view}/index`)
+      const view = require(`view/${route.view}/index`)
       return {
         path: route.path,
         component: route.component || view.default,

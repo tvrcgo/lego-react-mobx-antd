@@ -2,7 +2,7 @@ import {
   observable,
   computed,
   action
-} from '$lib/mix'
+} from 'lib/mix'
 
 class HomeStore {
   @observable count = 0

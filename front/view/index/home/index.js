@@ -2,13 +2,13 @@ import {
   React,
   Link,
   mixin
-} from '$lib/mix'
+} from 'lib/mix'
 import {
   Button
 } from 'antd'
 import css from './index.css'
 import Store from './index.store'
-import Hello from '$component/Hello'
+import Hello from 'component/Hello'
 
 const homeView = ({ store }) => {
   return (

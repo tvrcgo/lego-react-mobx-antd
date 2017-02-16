@@ -1,15 +1,13 @@
-# lego-react-antd
+# lego-react-mobx-antd
 
 ### Front
 - react
-- antd
-- typescript
-- mobx
 - mobx-react
 - css modules
+- ant design
 
 ### Server
-- lego
+- lego (based on koa@2)
 
 ## License
 MIT
