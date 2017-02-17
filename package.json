@@ -26,7 +26,6 @@
     "lego-static": "github:lego-component/static"
   },
   "devDependencies": {
-    "@types/react": "^15.0.0",
     "antd": "^2.6.1",
     "assets-webpack-plugin": "^3.5.0",
     "babel-core": "^6.21.0",

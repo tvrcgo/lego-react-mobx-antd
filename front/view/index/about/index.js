@@ -1,8 +1,6 @@
-import {
-  React,
-  Link,
-  mixin
-} from 'lib/mix'
+import React from 'react'
+import { Link } from 'react-router'
+import { mixin } from 'lib/mixin'
 
 const aboutView = ({}) => {
   return (

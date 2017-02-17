@@ -1,10 +1,6 @@
-import {
-  observable,
-  computed,
-  action
-} from 'lib/mix'
+import { observable, computed, action } from 'mobx-react'
 
-class HomeStore {
+export default class Store {
   @observable count = 0
 
   constructor (props) {
@@ -16,18 +12,8 @@ class HomeStore {
     return this.count
   }
 
-  @action
-  increase = () => {
+  @action.bound
+  increase() {
     this.count++
-  }
-}
-
-// stores entry
-export default (props) => {
-  // init stores with props
-  const store = new HomeStore(props)
-  // return stores
-  return {
-    store
   }
 }
