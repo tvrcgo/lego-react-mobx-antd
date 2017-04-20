@@ -17,6 +17,7 @@ exports.plugin = {
 // 加载的agent
 exports.agent = {
   livereload: {
+    env: ['dev'],
     package: 'lego-livereload'
   }
 }
